@@ -1,34 +1,35 @@
 from django.db import models
 
-class Vehiculo(models.Model):
-    nombre = models.CharField(max_length=255)
-    costo = models.DecimalField(max_digits=10, decimal_places=2)
+class Vehicle(models.Model):
+    name = models.CharField(max_length=255)
+    cost = models.DecimalField(max_digits=10, decimal_places=2)
     
     def __str__(self):
-        return f'{self.nombre} {self.costo}'
+        return f'{self.name} {self.cost}'
 
-class Caseta(models.Model):
-    nombre = models.CharField(max_length=255)
-    vehiculos = models.ManyToManyField(Vehiculo)
+class Stand(models.Model):
+    name = models.CharField(max_length=255)
+    vehicles = models.ManyToManyField(Vehicle)
     
     def __str__(self):
-        return f'{self.nombre}'
+        return f'{self.name}'
 
-class Ruta(models.Model):
-    nombreRuta = models.CharField(max_length=255)
-    estado = models.CharField(max_length=255)
-    tipoCarretera = models.CharField(max_length=255)
-    longitudKm = models.DecimalField(max_digits=10, decimal_places=3)
-    tiempoEstimado = models.CharField(max_length=255)
-    caseta = models.ForeignKey(Caseta, on_delete=models.CASCADE, null=True, blank=True)
+class Route(models.Model):
+    name = models.CharField(max_length=255)
+    state = models.CharField(max_length=255)
+    road = models.CharField(max_length=255)
+    length = models.DecimalField(max_digits=10, decimal_places=3)
+    time = models.CharField(max_length=255)
+    stand = models.ForeignKey(Stand, on_delete=models.CASCADE, null=True, blank=True)
     
     def __str__(self):
-        return f'{self.nombreRuta} | {self.longitudKm} KM'
+        return f'{self.name} | {self.length} KM'
 
-class Viaje(models.Model):
-    deCiudad = models.CharField(max_length=255)
-    aCiudad = models.CharField(max_length=255)
-    rutas = models.ManyToManyField(Ruta)
+class Trip(models.Model):
+    from_city = models.CharField(max_length=255)
+    to_city = models.CharField(max_length=255)
+    from_date = models.DateTimeField()
+    routes = models.ManyToManyField(Route)
 
     def __str__(self):
-        return f'{self.deCiudad} a {self.aCiudad}'
+        return f'{self.from_city} a {self.to_city}'
