@@ -1,23 +1,34 @@
 from django.db import models
 
-class Trip(models.Model):
-    CITIES = (
-        ("MXL", "Mexicali"),
-        ("TCT", "Tecate"),
-        ("TIJ", "Tijuana"),
-        ("RST", "Rosarito"),
-        ("ENS", "Ensenada"),
-    )
+class Vehiculo(models.Model):
+    nombre = models.CharField(max_length=255)
+    costo = models.DecimalField(max_digits=10, decimal_places=2)
     
-    VEHICLES = (
-        ()
-    )
+    def __str__(self):
+        return f'{self.nombre} {self.costo}'
+
+class Caseta(models.Model):
+    nombre = models.CharField(max_length=255)
+    vehiculos = models.ManyToManyField(Vehiculo)
     
-    from_city = models.CharField(max_length=20, choices=CITIES)
-    from_city_date = models.DateTimeField()
-    to_city = models.CharField(max_length=20, choices=CITIES)
-    to_city_data = models.DateTimeField()
-    passengers = models.IntegerField()
-    vehicle = models.CharField(max_length=100, choices=VEHICLES)
-    toll = models.DecimalField()
+    def __str__(self):
+        return f'{self.nombre}'
+
+class Ruta(models.Model):
+    nombreRuta = models.CharField(max_length=255)
+    estado = models.CharField(max_length=255)
+    tipoCarretera = models.CharField(max_length=255)
+    longitudKm = models.DecimalField(max_digits=10, decimal_places=3)
+    tiempoEstimado = models.CharField(max_length=255)
+    caseta = models.ForeignKey(Caseta, on_delete=models.CASCADE, null=True, blank=True)
     
+    def __str__(self):
+        return f'{self.nombreRuta} | {self.longitudKm} KM'
+
+class Viaje(models.Model):
+    deCiudad = models.CharField(max_length=255)
+    aCiudad = models.CharField(max_length=255)
+    rutas = models.ManyToManyField(Ruta)
+
+    def __str__(self):
+        return f'{self.deCiudad} a {self.aCiudad}'
