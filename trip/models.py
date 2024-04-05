@@ -28,7 +28,8 @@ class Route(models.Model):
 class Trip(models.Model):
     from_city = models.CharField(max_length=255)
     to_city = models.CharField(max_length=255)
-    from_date = models.DateTimeField()
+    from_city_date = models.DateTimeField()
+    to_city_date = models.DateTimeField()
     routes = models.ManyToManyField(Route)
 
     def __str__(self):
