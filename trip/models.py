@@ -1,4 +1,6 @@
 from django.db import models
+from django.conf import settings
+
 
 class Vehicle(models.Model):
     name = models.CharField(max_length=255)
@@ -34,6 +36,8 @@ class Trip(models.Model):
     total_cost = models.DecimalField(max_digits=10, decimal_places=3)
     gasoline_cost = models.DecimalField(max_digits=10, decimal_places=3)
     routes = models.ManyToManyField(Route)
-
+    passengers = models.IntegerField()
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    
     def __str__(self):
         return f'{self.from_city} a {self.to_city}'

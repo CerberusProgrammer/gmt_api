@@ -80,15 +80,16 @@ class ViajeViewSet(viewsets.ModelViewSet):
     salario_minimo = 141.70
     costo_combustible_por_litro = 20
     
+    def get_queryset(self):
+        return Trip.objects.filter(user=self.request.user).order_by('-id')
+    
     @action(detail=False, methods=['post'])
     def generate(self, request):
         destinations = request.data.get('destinations', [])
         passengers = int(request.data.get('passengers', ''))
         vehicle_name = request.data.get('vehicle', '')
         datetime_obj = parse_datetime(request.data.get('datetime', ''))
-        salario_minimo = 141.70  # Salario mínimo diario en Baja California en 2024
-        viaticos_por_dia = 6 * salario_minimo
-        costo_combustible_por_litro = 20  # Costo por litro de combustible
+        viaticos_por_dia = 6 * self.salario_minimo
         
         total_cost = 0
         total_details = []
@@ -145,7 +146,7 @@ class ViajeViewSet(viewsets.ModelViewSet):
         total_viaticos = total_time.total_seconds() / 3600 * viaticos_por_dia
         total_cost += total_viaticos
         
-        costo_combustible = (total_kilometraje / 3) * costo_combustible_por_litro
+        costo_combustible = (total_kilometraje / 3) * self.costo_combustible_por_litro
         total_cost += costo_combustible
         
         vehiculos_requeridos = -(-passengers // 4)
@@ -155,12 +156,14 @@ class ViajeViewSet(viewsets.ModelViewSet):
         
         trip = Trip.objects.create(
             from_city=destinations[0],
-            to_city=destinations[-1],
+            to_city=destinations[1],
             from_city_date=datetime_obj,
             to_city_date=to_city_date,
             travel_cost=round(total_viaticos, 2),
             total_cost=round(total_cost, 2),
-            gasoline_cost=round(costo_combustible, 2)
+            gasoline_cost=round(costo_combustible, 2),
+            passengers=passengers,
+            user=request.user
         )
         trip.routes.set(total_details)
         
