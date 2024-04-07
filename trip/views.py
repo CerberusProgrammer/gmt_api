@@ -31,6 +31,35 @@ class ViajeViewSet(viewsets.ModelViewSet):
     
     authentication_classes = [TokenAuthentication]
     permission_classes = [IsAuthenticated]
+
+    files = {
+        ("Mexicali", "Tecate"): "data/mxl-tec.csv",
+        ("Mexicali", "Tijuana"): "data/mxl-tij.csv",
+        ("Mexicali", "Rosarito"): "data/mxl-ros.csv",
+        ("Mexicali", "Ensenada"): "data/mxl-ens.csv",
+        ("Tecate", "Mexicali"): "data/mxl-tec.csv",
+        ("Tijuana", "Mexicali"): "data/mxl-tij.csv",
+        ("Rosarito", "Mexicali"): "data/mxl-ros.csv",
+        ("Ensenada", "Mexicali"): "data/mxl-ens.csv",
+    }
+    
+    columns = {
+        "Camión 3 ejes": 7,
+        "Camión 4 ejes": 8,
+        "Camión 5 ejes": 9,
+        "Camión 6 ejes": 10,
+        "Camión 7 ejes": 11,
+        "Camión 8 ejes": 12,
+        "Camión 9 ejes": 13,
+        "Automóvil": 14,
+        "Automóvil remolque 1 eje": 15,
+        "Automóvil remolque 2 eje": 16,
+        "Pick Ups": 17,
+        "Autobus 2 ejes": 18,
+        "Autobus 3 ejes": 19,
+        "Autobus 4 ejes": 20,
+        "Camión 2 ejes": 21,
+    }
     
     @action(detail=False, methods=['post'])
     def generate(self, request):
@@ -38,38 +67,9 @@ class ViajeViewSet(viewsets.ModelViewSet):
         passengers = request.data.get('passengers', '')
         vehicle = request.data.get('vehicle', '')
         
-        files = {
-            ("Mexicali", "Tecate"): "mxl-tec.csv",
-            ("Mexicali", "Tijuana"): "mxl-tij.csv",
-            ("Mexicali", "Rosarito"): "mxl-ros.csv",
-            ("Mexicali", "Ensenada"): "mxl-ens.csv",
-            ("Tecate", "Mexicali"): "mxl-tec.csv",
-            ("Tijuana", "Mexicali"): "mxl-tij.csv",
-            ("Rosarito", "Mexicali"): "mxl-ros.csv",
-            ("Ensenada", "Mexicali"): "mxl-ens.csv",
-        }
-        
-        columns = {
-            "Camión 3 ejes": 7,
-            "Camión 4 ejes": 8,
-            "Camión 5 ejes": 9,
-            "Camión 6 ejes": 10,
-            "Camión 7 ejes": 11,
-            "Camión 8 ejes": 12,
-            "Camión 9 ejes": 13,
-            "Automóvil": 14,
-            "Automóvil remolque 1 eje": 15,
-            "Automóvil remolque 2 eje": 16,
-            "Pick Ups": 17,
-            "Autobus 2 ejes": 18,
-            "Autobus 3 ejes": 19,
-            "Autobus 4 ejes": 20,
-            "Camión 2 ejes": 21,
-        }
-        
-        if tuple(destinations[:2]) in files and vehicle in columns:
-            filename = files[tuple(destinations[:2])]
-            column = columns[vehicle]
+        if tuple(destinations[:2]) in self.files and vehicle in self.columns:
+            filename = self.files[tuple(destinations[:2])]
+            column = self.columns[vehicle]
             
             with open(filename, 'r') as file:
                 reader = csv.reader(file)
@@ -94,9 +94,6 @@ class ViajeViewSet(viewsets.ModelViewSet):
                 if len(destinations) == 3 and destinations[0] == destinations[2]:
                     total_cost *= 2
                     details += details[::-1]
-                
-                if destinations[1] == "Mexicali":
-                    details = details[::-1]
                 
                 return Response({
                     "costo_total": total_cost,
