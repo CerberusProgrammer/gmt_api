@@ -12,22 +12,28 @@ class UserSerializer(serializers.ModelSerializer):
         user = User.objects.create_user(**validated_data)
         return user
 
-class ViajeSerializer(serializers.ModelSerializer):
+class VehicleSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Trip
+        model = Vehicle
         fields = '__all__'
 
-class RutaSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Route
-        fields = '__all__'
-
-class CasetaSerializer(serializers.ModelSerializer):
+class StandSerializer(serializers.ModelSerializer):
+    vehicles = VehicleSerializer(many=True, read_only=True)
+    
     class Meta:
         model = Stand
         fields = '__all__'
 
-class VehiculoSerializer(serializers.ModelSerializer):
+class RouteSerializer(serializers.ModelSerializer):
+    stand = StandSerializer(read_only=True)
+
     class Meta:
-        model = Vehicle
+        model = Route
+        fields = '__all__'
+
+class TripSerializer(serializers.ModelSerializer):
+    routes = RouteSerializer(many=True, read_only=True)
+    
+    class Meta:
+        model = Trip
         fields = '__all__'

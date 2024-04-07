@@ -30,6 +30,9 @@ class Trip(models.Model):
     to_city = models.CharField(max_length=255)
     from_city_date = models.DateTimeField()
     to_city_date = models.DateTimeField()
+    travel_cost = models.DecimalField(max_digits=10, decimal_places=3)
+    total_cost = models.DecimalField(max_digits=10, decimal_places=3)
+    gasoline_cost = models.DecimalField(max_digits=10, decimal_places=3)
     routes = models.ManyToManyField(Route)
 
     def __str__(self):

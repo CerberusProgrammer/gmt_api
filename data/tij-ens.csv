@@ -1,0 +1,6 @@
+Nombre,Edo.,Carretera,Long.(km),Tiempo(Hrs),Caseta o puente,Motocicleta,Cami�n 3 ejes,Cami�n 4 ejes,Cami�n 5 ejes,Cami�n 6 ejes,Cami�n 7 ejes,Cami�n 8 ejes,Cami�n 9 ejes,Autom�vil,Autom�vil remolque 1 eje,Autom�vil remolque 2 eje,Pick Ups,Autobus 2 ejes,Autobus 3 ejes,Autobus 4 ejes,Cami�n 2 ejes
+Tijuana - Entronque Rosarito,BCN,Mex 001D,27.153,00:16,Playas de Tijuana,22.0,94.0,114.0,114.0,130.0,130.0,130.0,130.0,44.0,67.0,90.0,44.0,94.0,94.0,94.0,94.0
+Entronque Rosarito - Entronque La Misi�n,BCN,Mex 001D,37.896,00:20,Rosarito,22.0,94.0,114.0,114.0,130.0,130.0,130.0,130.0,44.0,67.0,90.0,44.0,94.0,94.0,94.0,94.0
+Entronque La Misi�n - San Miguel,BCN,Mex 001D,31.153,00:16,Ensenada,24.0,94.0,118.0,118.0,136.0,136.0,136.0,136.0,48.0,73.0,98.0,48.0,98.0,98.0,98.0,94.0
+San Miguel - Ensenada,BCN,Mex 001,15.035,00:11,,,,,,,,,,,,,,,,,
+Totales,,,111.24,01:05,,68.0,282.0,346.0,346.0,396.0,396.0,396.0,396.0,136.0,207.0,278.0,136.0,286.0,286.0,286.0,282.0
