@@ -1,3 +1,4 @@
+import csv
 from rest_framework.authentication import TokenAuthentication
 from rest_framework.permissions import IsAuthenticated
 from rest_framework import viewsets
@@ -6,7 +7,8 @@ from rest_framework.authtoken.models import Token
 from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.views import APIView
-
+from rest_framework.decorators import action
+from rest_framework.response import Response
 
 from trip.models import Stand, Route, Vehicle, Trip
 from trip.serializer import CasetaSerializer, RutaSerializer, UserSerializer, VehiculoSerializer, ViajeSerializer
@@ -29,6 +31,79 @@ class ViajeViewSet(viewsets.ModelViewSet):
     
     authentication_classes = [TokenAuthentication]
     permission_classes = [IsAuthenticated]
+    
+    @action(detail=False, methods=['post'])
+    def generate(self, request):
+        destinations = request.data.get('destinations', [])
+        passengers = request.data.get('passengers', '')
+        vehicle = request.data.get('vehicle', '')
+        
+        files = {
+            ("Mexicali", "Tecate"): "mxl-tec.csv",
+            ("Mexicali", "Tijuana"): "mxl-tij.csv",
+            ("Mexicali", "Rosarito"): "mxl-ros.csv",
+            ("Mexicali", "Ensenada"): "mxl-ens.csv",
+            ("Tecate", "Mexicali"): "mxl-tec.csv",
+            ("Tijuana", "Mexicali"): "mxl-tij.csv",
+            ("Rosarito", "Mexicali"): "mxl-ros.csv",
+            ("Ensenada", "Mexicali"): "mxl-ens.csv",
+        }
+        
+        columns = {
+            "Camión 3 ejes": 7,
+            "Camión 4 ejes": 8,
+            "Camión 5 ejes": 9,
+            "Camión 6 ejes": 10,
+            "Camión 7 ejes": 11,
+            "Camión 8 ejes": 12,
+            "Camión 9 ejes": 13,
+            "Automóvil": 14,
+            "Automóvil remolque 1 eje": 15,
+            "Automóvil remolque 2 eje": 16,
+            "Pick Ups": 17,
+            "Autobus 2 ejes": 18,
+            "Autobus 3 ejes": 19,
+            "Autobus 4 ejes": 20,
+            "Camión 2 ejes": 21,
+        }
+        
+        if tuple(destinations[:2]) in files and vehicle in columns:
+            filename = files[tuple(destinations[:2])]
+            column = columns[vehicle]
+            
+            with open(filename, 'r') as file:
+                reader = csv.reader(file)
+                next(reader)
+                
+                total_cost = 0
+                details = []
+                for row in reader:
+                    cost = float(row[column]) if row[column] else 0.0
+                    
+                    if row[0] == "Totales":
+                        total_cost += cost
+                    else:
+                        details.append({
+                            "nombre": row[0],
+                            "costo": cost,
+                            "carretera": row[2],
+                            "tiempo": row[4],
+                            "caseta": row[5]
+                        })
+                
+                if len(destinations) == 3 and destinations[0] == destinations[2]:
+                    total_cost *= 2
+                    details += details[::-1]
+                
+                if destinations[1] == "Mexicali":
+                    details = details[::-1]
+                
+                return Response({
+                    "costo_total": total_cost,
+                    "detalles": details
+                })
+        
+        return Response({"error": "Destinaciones o vehículo no válidos"})
 
 class RutaViewSet(viewsets.ModelViewSet):
     queryset = Route.objects.all().order_by('-id')
