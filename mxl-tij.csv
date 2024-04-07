@@ -1,0 +1,7 @@
+Nombre,Edo.,Carretera,Long.(km),Tiempo(Hrs),Caseta o puente,Motocicleta,Cami�n 3 ejes,Cami�n 4 ejes,Cami�n 5 ejes,Cami�n 6 ejes,Cami�n 7 ejes,Cami�n 8 ejes,Cami�n 9 ejes,Autom�vil,Autom�vil remolque 1 eje,Autom�vil remolque 2 eje,Pick Ups,Autobus 2 ejes,Autobus 3 ejes,Autobus 4 ejes,Cami�n 2 ejes
+Mexicali - Flor del Desierto,BCN,Zona Urbana,48.271,00:38,,,,,,,,,,,,,,,,,
+Flor del Desierto - Entronque La Rumorosa,BCN,Mex 002D,20.841,00:17,La Rumorosa,15.0,114.0,114.0,182.0,182.0,205.0,205.0,205.0,30.0,45.0,60.0,30.0,114.0,114.0,114.0,114.0
+Entronque La Rumorosa - Libramiento de Tecate (Ent. Sandoval),BCN,Mex 002D,55.336,00:30,El Hongo,48.0,175.0,312.0,312.0,449.0,449.0,449.0,449.0,97.0,145.0,193.0,97.0,175.0,175.0,175.0,175.0
+Libramiento de Tecate (Ent. Sandoval) - Ent. Tijuana,BCN,Mex 002D,27.22,00:16,Tijuana,75.0,291.0,291.0,417.0,417.0,534.0,534.0,534.0,151.0,227.0,303.0,151.0,224.0,224.0,224.0,224.0
+Entronque Tijuana - Tijuana,BCN,Mex 002D,19.891,00:19,,,,,,,,,,,,,,,,,
+Totales,,,171.56,02:03,,138.0,580.0,717.0,911.0,1,48.0,1,188.0,1,188.0,1,188.0,278.0,417.0,556.0,278.0,513.0,513.0,513.0,513.0

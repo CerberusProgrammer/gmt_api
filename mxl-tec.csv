@@ -1,0 +1,6 @@
+Nombre,Edo.,Carretera,Long.(km),Tiempo(Hrs),Caseta o puente,Motocicleta,Camión 3 ejes,Camión 4 ejes,Camión 5 ejes,Camión 6 ejes,Camión 7 ejes,Camión 8 ejes,Camión 9 ejes,Automóvil,Automóvil remolque 1 eje,Automóvil remolque 2 eje,Pick Ups,Autobus 2 ejes,Autobus 3 ejes,Autobus 4 ejes,Camión 2 ejes
+Mexicali - Flor del Desierto,BCN,Zona Urbana,48.271,00:38,,,,,,,,,,,,,,,,,
+Flor del Desierto - Entronque La Rumorosa,BCN,Mex 002D,20.841,00:17,La Rumorosa,15.0,114.0,114.0,182.0,182.0,205.0,205.0,205.0,30.0,45.0,60.0,30.0,114.0,114.0,114.0,114.0
+Entronque La Rumorosa - Libramiento de Tecate (Ent. Sandoval),BCN,Mex 002D,55.336,00:30,El Hongo,48.0,175.0,312.0,312.0,449.0,449.0,449.0,449.0,97.0,145.0,193.0,97.0,175.0,175.0,175.0,175.0
+Libramiento de Tecate (Ent. Sandoval) - Tecate,BCN,Zona Urbana,5.302,00:06,,,,,,,,,,,,,,,,,
+Totales,,,129.75,01:33,,63.0,289.0,426.0,494.0,631.0,654.0,654.0,654.0,127.0,190.0,253.0,127.0,289.0,289.0,289.0,289.0
