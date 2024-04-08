@@ -1,16 +1,15 @@
+import os
 from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = 'django-insecure-u@4r$03*!ipzi!*wp*$!909&wj5jjd&@6_p=_kwiu3niga$8+t'
 
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
-# CORS_ALLOWED_ORIGINS = [
-#     "http://localhost:4321",
-# ]
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 INSTALLED_APPS = [
     'trip',
@@ -19,7 +18,9 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    'whitenoise.runserver_nostatic',
     'django.contrib.staticfiles',
+    
     'rest_framework',
     'rest_framework.authtoken',
     'corsheaders',
@@ -33,6 +34,7 @@ REST_FRAMEWORK = {
 CORS_ALLOW_ALL_ORIGINS = True
 
 MIDDLEWARE = [
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -90,5 +92,10 @@ LANGUAGE_CODE = 'es-mx'
 TIME_ZONE = 'UTC'
 USE_I18N = True
 USE_TZ = True
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+# CORS_ALLOWED_ORIGINS = [
+#     "http://localhost:4321",
+# ]
