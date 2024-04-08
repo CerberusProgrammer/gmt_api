@@ -1,7 +1,7 @@
-Nombre,Edo.,Carretera,Long.(km),Tiempo(Hrs),Caseta o puente,Motocicleta,Camión 3 ejes,Camión 4 ejes,Camión 5 ejes,Camión 6 ejes,Camión 7 ejes,Camión 8 ejes,Camión 9 ejes,Automóvil,Automóvil remolque 1 eje,Automóvil remolque 2 eje,Pick Ups,Autobus 2 ejes,Autobus 3 ejes,Autobus 4 ejes,Camión 2 ejes
+Nombre,Edo.,Carretera,Long.(km),Tiempo(Hrs),Caseta o puente,Motocicleta,Camion 3 ejes,Camion 4 ejes,Camion 5 ejes,Camion 6 ejes,Camion 7 ejes,Camion 8 ejes,Camion 9 ejes,Automovil,Automovil remolque 1 eje,Automovil remolque 2 eje,Pick Ups,Autobus 2 ejes,Autobus 3 ejes,Autobus 4 ejes,Camion 2 ejes
 Ensenada - San Miguel,BCN,Mex 001,15.035,00:11,,,,,,,,,,,,,,,,
-San Miguel - Entronque La Misión,BCN,Mex 001D,31.153,00:16,Ensenada,24.0,94.0,118.0,118.0,136.0,136.0,136.0,136.0,48.0,73.0,98.0,48.0,98.0,98.0,98.0,94.0
-Entronque La Misión - Entronque Tijuana,BCN,Mex 001D,68.298,00:39,,,,,,,,,,,,,,,,
+San Miguel - Entronque La Mision,BCN,Mex 001D,31.153,00:16,Ensenada,24.0,94.0,118.0,118.0,136.0,136.0,136.0,136.0,48.0,73.0,98.0,48.0,98.0,98.0,98.0,94.0
+Entronque La Mision - Entronque Tijuana,BCN,Mex 001D,68.298,00:39,,,,,,,,,,,,,,,,
 Ent. Tijuana - Tecate y Lib. de Tecate,BCN,Mex 002D,27.22,00:16,Tijuana,75.0,291.0,291.0,417.0,417.0,534.0,534.0,534.0,151.0,227.0,303.0,151.0,224.0,224.0,224.0,224.0
 Libramiento de Tecate (Ent. Sandoval) - Entronque La Rumorosa,BCN,Mex 002D,55.336,00:30,El Hongo,48.0,175.0,312.0,312.0,449.0,449.0,449.0,449.0,97.0,145.0,193.0,97.0,175.0,175.0,175.0,175.0
 Entronque La Rumorosa - Entronque La Rumorosa 2,BCN,Mex 002D,1.049,00:01,,,,,,,,,,,,,,,,

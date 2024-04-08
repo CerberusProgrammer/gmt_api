@@ -86,7 +86,7 @@ class ViajeViewSet(viewsets.ModelViewSet):
     @action(detail=False, methods=['post'])
     def generate(self, request):
         destinations = request.data.get('destinations', [])
-        passengers = int(request.data.get('passengers', ''))
+        passengers = int(request.data.get('passengers', 0))
         vehicle_name = request.data.get('vehicle', '')
         datetime_obj = parse_datetime(request.data.get('datetime', ''))
         viaticos_por_dia = 6 * self.salario_minimo

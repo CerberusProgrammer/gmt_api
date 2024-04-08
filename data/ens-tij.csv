@@ -1,6 +1,6 @@
-Nombre,Edo.,Carretera,Long.(km),Tiempo(Hrs),Caseta o puente,Motocicleta,Camión 3 ejes,Camión 4 ejes,Camión 5 ejes,Camión 6 ejes,Camión 7 ejes,Camión 8 ejes,Camión 9 ejes,Automóvil,Automóvil remolque 1 eje,Automóvil remolque 2 eje,Pick Ups,Autobus 2 ejes,Autobus 3 ejes,Autobus 4 ejes,Camión 2 ejes
+Nombre,Edo.,Carretera,Long.(km),Tiempo(Hrs),Caseta o puente,Motocicleta,Camion 3 ejes,Camion 4 ejes,Camion 5 ejes,Camion 6 ejes,Camion 7 ejes,Camion 8 ejes,Camion 9 ejes,Automovil,Automovil remolque 1 eje,Automovil remolque 2 eje,Pick Ups,Autobus 2 ejes,Autobus 3 ejes,Autobus 4 ejes,Camion 2 ejes
 Ensenada - San Miguel,BCN,Mex 001,15.035,00:11,,,,,,,,,,,,,,,,
-San Miguel - Entronque La Misión,BCN,Mex 001D,31.153,00:16,Ensenada,24.0,94.0,118.0,118.0,136.0,136.0,136.0,136.0,48.0,73.0,98.0,48.0,98.0,98.0,98.0,94.0
-Entronque La Misión - Entronque Rosarito,BCN,Mex 001D,37.896,00:20,Rosarito,22.0,94.0,114.0,114.0,130.0,130.0,130.0,130.0,44.0,67.0,90.0,44.0,94.0,94.0,94.0,94.0
+San Miguel - Entronque La Mision,BCN,Mex 001D,31.153,00:16,Ensenada,24.0,94.0,118.0,118.0,136.0,136.0,136.0,136.0,48.0,73.0,98.0,48.0,98.0,98.0,98.0,94.0
+Entronque La Mision - Entronque Rosarito,BCN,Mex 001D,37.896,00:20,Rosarito,22.0,94.0,114.0,114.0,130.0,130.0,130.0,130.0,44.0,67.0,90.0,44.0,94.0,94.0,94.0,94.0
 Entronque Rosarito - Tijuana,BCN,Mex 001D,27.153,00:16,Playas de Tijuana,22.0,94.0,114.0,114.0,130.0,130.0,130.0,130.0,44.0,67.0,90.0,44.0,94.0,94.0,94.0,94.0
 Totales,,,111.24,01:05,,68.0,282.0,346.0,346.0,396.0,396.0,396.0,396.0,136.0,207.0,278.0,136.0,286.0,286.0,286.0,282.0
